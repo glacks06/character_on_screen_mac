@@ -1,0 +1,3 @@
+([('도로롱',
+   '/Users/chan/Desktop/personal_projects/moving_character/dist/도로롱',
+   'EXECUTABLE')],)

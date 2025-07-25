@@ -15,11 +15,11 @@ img_size_y = 100
 state_control_loop_interval = 5000
 state_cnt = 2 # 상태 개수 (현재: idle, run)(2개)
 
-idle_list = ['./idle1.png', './idle2.png']
+idle_list = ['idle1.png', 'idle2.png']
 idle_motion_loop_interval = 250
 
-run_motion1_path = './run1.png'
-run_motion2_path = './run2.png'
+run_motion1_path = 'run1.png'
+run_motion2_path = 'run2.png'
 run_motion_loop_interval = 250
 
 window_move_loop_interval = 10

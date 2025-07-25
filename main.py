@@ -4,7 +4,11 @@ from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLabel
 from PyQt5.QtGui import QPixmap, QTransform
 import random
 import constants as cons
+import os
 
+def resource_path(relative_path):
+    base_path = getattr(sys, "_MEIPASS", os.path.abspath("."))
+    return os.path.join(base_path, relative_path)
 
 
 class TransparentWindow(QWidget):
@@ -22,7 +26,7 @@ class TransparentWindow(QWidget):
 
         self.state = 1 # 0: 제자리, 1: 이동
         self.label = QLabel(self)
-        pixmap = QPixmap(cons.idle_list[0])
+        pixmap = QPixmap(resource_path(cons.idle_list[0]))
         self.label.setPixmap(pixmap)
         self.label.setScaledContents(True)
         self.label.setGeometry(cons.img_x, cons.img_y, cons.img_size_x, cons.img_size_y)  # 원하는 위치와 크기로 조정
@@ -75,15 +79,15 @@ class TransparentWindow(QWidget):
 
     
     def idle_anim(self):
-        pixmap = QPixmap(cons.idle_list[self.img_idle_state])
+        pixmap = QPixmap(resource_path(cons.idle_list[self.img_idle_state]))
         self.label.setPixmap(pixmap)
 
     def run_anim(self):
         if self.img_run_state == 0:
-            pixmap = QPixmap(cons.run_motion1_path)
+            pixmap = QPixmap(resource_path(cons.run_motion1_path))
             self.img_run_state = 1
         else:
-            pixmap = QPixmap(cons.run_motion2_path)
+            pixmap = QPixmap(resource_path(cons.run_motion2_path))
             self.img_run_state = 0
 
         if self.img_run_direction == -1: # 좌우 반전
